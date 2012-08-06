@@ -1,5 +1,5 @@
 Pinpon::Application.configure do
-  config.assets.precompile_on_initialize = false
+  config.assets.precompile += [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css']) }, /application.(css|js)$/ ]
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
