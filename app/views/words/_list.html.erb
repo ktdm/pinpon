@@ -1,0 +1,5 @@
+<div class="eqlist">
+ <% @equivalences.each do |eq| %>
+ <div><%= link_to eq.source_word.value, word_path(eq.source_word) %></div>
+ <% end %>
+</div>

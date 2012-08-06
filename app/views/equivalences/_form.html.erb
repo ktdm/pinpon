@@ -1,0 +1,47 @@
+<div class="subh">Add an translation</div>
+<%= form_for @equivalence, :html => {:class => "box"} do |eq| %>
+  <% if @equivalence.errors.any? %>
+  <div>
+    <h2><%= pluralize(@equivalence.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @equivalence.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div id="eqform" class="table">
+  <%= fields_for "source_word", @equivalence.source_word  do |s| %>
+    <%= hidden_field_tag "source_word[id]", params[:word_id] %>
+    <div>
+      <div>The word</div>
+      <div><%= params[:word_id] ? s.object.value : s.text_field(:value) %></div>
+    </div>
+    <div>
+      <div>in language</div>
+      <div><%= params[:word_id] ? s.object.language : s.text_field(:language) %></div>
+    </div>
+  <% end %>
+    <br />
+
+  <%= fields_for "target_word", @equivalence.target_word do |t| %>
+    <div>
+      <div>means</div>
+      <div><%= t.text_field :value %></div>
+    </div>
+    <div>
+      <div>in language</div>
+      <div><%= t.text_field :language %></div>
+    </div>
+  <% end %>
+   <div>
+    <div></div>
+    <div><%= eq.submit %></div>
+   </div>
+  </div>
+
+  <% if params[:controller] == "equivalences" and params[:action].in? ["new", "create"] %>
+  <%= render 'explanations/form' %>
+  <% end %>
+<% end %>

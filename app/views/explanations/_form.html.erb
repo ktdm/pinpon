@@ -1,0 +1,29 @@
+<div class="subh">Add an explanation</div>
+<%= form_for @explanation, :html => {:class => "box"} do |ex| %>
+  <%= hidden_field_tag :equivalence_id, params[:equivalence_id] if params[:equivalence_id] %>
+  <% if @explanation.errors.any? %>
+  <div>
+    <h2><%= pluralize(@explanation.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @explanation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div id="exform">
+    <% if @explanation.equivalence %>
+    <div class="translation"><%= @explanation.equivalence.source_word.value %>&ensp;&rArr;&ensp;<%= @explanation.equivalence.target_word.value %></div>
+    <% end %>
+    <div>Explanation</div>
+    <div>
+      <div><%= ex.text_area :body %></div>
+    </div>
+
+    <div>Example</div>
+    <div>
+      <div><%= ex.text_field :example %></div>
+    </div>
+    <div><%= ex.submit %></div>
+  </div>
+<% end %>

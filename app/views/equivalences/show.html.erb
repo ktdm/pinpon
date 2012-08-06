@@ -1,0 +1,13 @@
+<div class="subh">List of explanations</div>
+<div id="exlist">
+ <div class="translation"><%= @equivalence.source_word.value %>&ensp;&rArr;&ensp;<%= @equivalence.target_word.value %></div>
+ <% @equivalence.explanations.each do |ex| %>
+ <div>
+  <div><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "explanations", :id => ex.id}, :class => "vote", :id => ("ex" + ex.id.to_s), :remote => true %>&ensp;<%= ex.body %></div>
+  <div class="add"><%= link_to "Edit explanation", edit_explanation_path(ex, :equivalence_id => params[:id]) %></div>
+  <div>Example: <span><%= link_to ex.example, ex.example %></span></div>
+ </div>
+ <% end %>
+ <div class="add_"><%= link_to "Add explanation", new_explanation_path(:equivalence_id => params[:id]) %></div>
+</div>
+<%= link_to "Back", word_path(@equivalence.source_word) %>

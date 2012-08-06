@@ -1,0 +1,187 @@
+input {
+ border: solid black 1px
+}
+input[type="text"], textarea {
+ padding: 0.2em;
+ font-size: large;
+ max-height: 10em
+}
+div.pp {
+ font-size: xx-large;
+ font-weight: bold
+}
+div.subpp {
+ font-size: large
+}
+div.add {
+ position:relative;
+ float:right
+}
+a {
+ text-decoration: none
+}
+a:link, a:visited {
+ color: #700050
+}
+a:hover {
+ border-bottom: dashed black 1px
+}
+a.vote {
+ font-size: x-large;
+ border: none;
+ vertical-align: middle
+}
+div.subh {
+ font-size: large;
+ margin: 1em auto 1em auto
+}
+form.box {
+ margin: 1em
+}
+div.table {
+ display: table;
+ width: 100%
+}
+div.table > div {
+ display: table-row
+}
+div.table > div > div {
+ display: table-cell;
+ padding: 1em;
+ width: 100%;
+ font-size: large
+}
+div.table > div:last-child > div > * {
+ width: auto
+}
+div.table > div > div:first-child {
+ width: 15%;
+ text-align: right;
+ font-size: medium
+}
+div.table > div > div > * {
+ width: 100%;
+ margin-left: -1em
+}
+div.table > div:last-child > div {
+ text-align: right
+}
+
+/** words#index **/
+
+div.langs-field {
+ margin-bottom: 5px;
+ width: 100%
+}
+div.langs-field > form {
+ width: 60%;
+ margin: 2em auto 2em auto;
+ line-height: 2em
+}
+div.eqlist {
+ background-color: #f090d8;
+ border: solid navy 1px;
+ width: 30em;
+ margin: 2em
+}
+div.eqlist > div {
+ margin: 0.5em
+}
+
+/** words#show **/
+
+div.translations {
+ margin: 1em;
+ background-color: #f090d8;
+ border: solid navy 1px
+}
+div.source_word {
+ font-size: x-large
+}
+div.target_word {
+ margin: 1em 2em 1em 2em
+}
+div.explanation {
+ margin: 1em 2em 1em 2em
+}
+div.explanation > div {
+ margin: 0.5em 2em 0.5em 2em
+}
+div.add_ {
+ margin: 0.5em;
+ text-align: right
+}
+
+/** equivalences#new **/
+
+div#eqform {
+ background-color: yellow;
+ border: solid navy 1px
+}
+
+/** equivalences#show **/
+
+div.translation {
+ font-size: x-large
+}
+div#exlist {
+ background-color: orange;
+ border: solid navy 1px;
+ margin: 1em
+}
+div#exlist > div:first-child {
+ margin: auto
+}
+div#exlist > div {
+ margin: 1em
+}
+div#exlist > div > div {
+ margin: 0.5em
+}
+hr {
+ margin: 1em 2em 1em 2em;
+ height: 1px;
+ border: 0px;
+ background-color: navy
+}
+div.foot {
+ margin: 1em
+}
+div.foot > div:first-child {
+ margin: auto
+}
+div.foot > div {
+ margin: 0.5em 1em 0.5em 1em
+}
+div.foot > div > div {
+ margin: 0.5em 1em 0.5em 1em
+}
+
+/** explanations#new **/
+
+div#exform {
+ background-color: lime;
+ border: solid navy 1px
+}
+div#exform > div {
+ margin: 1em 2em 1em 2em
+}
+div#exform > div > * {
+ margin: 1em 2em 1em 2em
+}
+div#exform > div > * > * {
+ width: 100%
+}
+div#exform > div:last-child {
+ text-align: right
+}
+div#exform > div.translation {
+ margin: 0em
+}
+
+/** suggestions#new **/
+
+div#sgform {
+ background-color: aqua;
+ border: solid navy 1px
+}

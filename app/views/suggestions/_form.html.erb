@@ -1,0 +1,50 @@
+<div class="subh">Add a suggestion</div>
+<%= form_for @suggestion, :html => {:class => "box"} do |sg| %>
+  <% if @suggestion.errors.any? %>
+  <div>
+    <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @suggestion.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div id="sgform" class="table">
+  <%= fields_for "apropos_of", @suggestion.apropos_of  do |s| %>
+    <%= hidden_field_tag "apropos_of[id]", params[:word_id] %>
+    <div>
+      <div>The word</div>
+      <div><%= params[:word_id] ? s.object.value : s.text_field(:value) %></div>
+    </div>
+    <div>
+      <div>in language</div>
+      <div><%= params[:word_id] ? s.object.language : s.text_field(:language) %></div>
+    </div>
+  <% end %>
+    <br />
+
+  <%= fields_for "suggested_word", @suggestion.suggested_word do |t| %>
+    <div>
+      <div>is like the word</div>
+      <div><%= t.text_field :value %></div>
+    </div>
+    <div>
+      <div>in language</div>
+      <div><%= t.text_field :language %></div>
+    </div>
+  <% end %>
+    <br />
+
+    <div>
+      <div>Reason:</div>
+      <div><%= sg.text_field :relation %></div>
+    </div>
+
+   <div>
+    <div></div>
+    <div><%= sg.submit %></div>
+   </div>
+  </div>
+<% end %>

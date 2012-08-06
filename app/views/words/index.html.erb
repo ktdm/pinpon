@@ -1,0 +1,13 @@
+<% content_for :head do %>
+ <%= stylesheet_link_tag :front, :media => "all" %>
+<% end %>
+<% content_for :corner do %>
+<div class="add"><%= link_to "Submit a translation", new_equivalence_path %></div>
+<% end %>
+<div class="langs-field">
+ <%= form_tag root_path, :remote => true, "data-type" => :html, :id => "frform" do %>
+  <span>from <%= text_field_tag :source_lang, @search[0], :class => "frsubmit" %> to <%= text_field_tag :target_lang, @search[1], :class => "frsubmit" %></span>
+ <% end %>
+</div>
+
+<div id="list"></div>
