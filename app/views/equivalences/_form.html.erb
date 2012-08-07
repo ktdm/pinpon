@@ -13,7 +13,7 @@
 
   <div id="eqform" class="table">
   <%= fields_for "source_word", @equivalence.source_word  do |s| %>
-    <%= hidden_field_tag "source_word[id]", params[:word_id] %>
+    <%= hidden_field_tag "source_word[id]", params[:word_id] if params[:word_id] %>
     <div>
       <div>The word</div>
       <div><%= params[:word_id] ? s.object.value : s.text_field(:value) %></div>
