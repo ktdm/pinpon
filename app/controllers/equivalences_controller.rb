@@ -2,7 +2,7 @@ class EquivalencesController < ApplicationController
   def new
     @equivalence = Equivalence.new
     @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id])
-    @equivalence.source_word = Word.new if @equivalence.source_word.id == 0
+#    @equivalence.source_word = Word.new if @equivalence.source_word.id == 0
     @equivalence.target_word = Word.new
     @equivalence.explanations << @explanation = Explanation.new
 
@@ -15,7 +15,7 @@ class EquivalencesController < ApplicationController
   def create
     @equivalence = Equivalence.new
     @equivalence.source_word_id = params[:source_word][:id] || Word.find_or_create_by_value_and_language(*params[:source_word].to_a.map {|p| p[1]}).id #can I assume hash order??
-    @equivalence.source_word = Word.create(*params[:source_word]) if @equivalence.source_word.id == 0
+#    @equivalence.source_word = Word.create(*params[:source_word]) if @equivalence.source_word.id == 0
     @equivalence.target_word = Word.find_or_create_by_value_and_language(*params[:target_word].to_a.map {|p| p[1]})
     @equivalence.explanations << @explanation = Explanation.new(params[:explanation])
  
