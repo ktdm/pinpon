@@ -1,7 +1,7 @@
 class EquivalencesController < ApplicationController
   def new
     @equivalence = Equivalence.new
-    @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id])
+    @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id]) if params[:word_id]
     @equivalence.target_word = Word.new
     @equivalence.explanations << @explanation = Explanation.new
 
