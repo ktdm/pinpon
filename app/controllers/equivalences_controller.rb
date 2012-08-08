@@ -13,12 +13,14 @@ class EquivalencesController < ApplicationController
 
   def create
     @equivalence = Equivalence.new
-    if params[:source_word][:id]
-      @equivalence.source_word_id = params[:source_word][:id] 
+    source_word = params[:source_word]
+    target_word = params[:target_word]
+    if source_word[:id]
+      @equivalence.source_word_id = source_word[:id]
     else
-      @equivalence.source_word = Word.find_or_initialize_by_value_and_language(*params[:source_word].to_a.map {|p| p[1]}) #can I assume hash order??
+      @equivalence.source_word = Word.find_or_initialize_by_value_and_language(source_word[:value], source_word[:language]) #can I assume hash order??
     end
-    @equivalence.target_word = Word.find_or_initialize_by_value_and_language(*params[:target_word].to_a.map {|p| p[1]})
+    @equivalence.target_word = Word.find_or_initialize_by_value_and_language(target_word[:value], target_word[:language])
     @equivalence.explanations << @explanation = Explanation.new(params[:explanation])
  
     respond_to do |format|
