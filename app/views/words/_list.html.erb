@@ -1,5 +1,11 @@
+<% if @equivalences.empty? %>
+<div class="eqlist">
+ <div><%= link_to "No words yet. Submit one!", new_equivalence_path %></div>
+</div>
+<% else %>
 <div class="eqlist">
  <% @equivalences.each do |eq| %>
  <div><%= link_to eq.source_word.value, word_path(eq.source_word) %></div>
  <% end %>
 </div>
+<% end %>

@@ -1,6 +1,5 @@
 class WordsController < ApplicationController
   def index
-    @words = Word.all
     @search = [params[:source_lang] || "Japanese", params[:target_lang] || "English"]
     if params[:source_lang] and params[:target_lang]
       @equivalences = Equivalence.where(
