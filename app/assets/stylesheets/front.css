@@ -71,12 +71,12 @@ div.table > div:last-child > div {
 
 div.langs-field {
  margin-bottom: 5px;
- width: 100%
+ width: 100%;
+ text-align: center
 }
 div.langs-field > form {
- width: 60%;
- margin: 2em auto 2em auto;
- line-height: 2em
+ display: inline-block;
+ margin-top: 2em
 }
 div.eqlist {
  background-color: #f090d8;
@@ -86,6 +86,12 @@ div.eqlist {
 }
 div.eqlist > div {
  margin: 0.5em
+}
+input.submit {
+ border: solid black 1px;
+ font-size: large;
+ height: 1.8em;
+ width: 1.8em
 }
 
 /** words#show **/

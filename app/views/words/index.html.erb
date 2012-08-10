@@ -6,7 +6,7 @@
 <% end %>
 <div class="langs-field">
  <%= form_tag root_path, :remote => true, "data-type" => :html, :id => "frform" do %>
-  <span>from <%= text_field_tag :source_lang, @search[0], :class => "frsubmit" %> to <%= text_field_tag :target_lang, @search[1], :class => "frsubmit" %></span>
+  <span>from <%= text_field_tag :source_lang, @search[0], :class => "frsubmit" %> to <%= text_field_tag :target_lang, @search[1], :class => "frsubmit" %> <%= submit_tag "&#x21ba;".html_safe, :class => "submit" %></span>
  <% end %>
 </div>
 
