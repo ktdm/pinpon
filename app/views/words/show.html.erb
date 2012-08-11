@@ -3,7 +3,7 @@
  <div class="source_word"><%= @word.value %></div>
  <% @word.equivalences.each do |eq| %>
  <div class="translation">
-  <div class="target_word"><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "equivalences", :id => eq.id}, :class => "vote", :id => ("eq" + eq.id.to_s), :remote => true %>&ensp;<%= eq.target_word.value %></div>
+  <div class="target_word">&nbsp;<span class="counter"><%= (eq.upvotes - eq.downvotes).to_s %></span><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "equivalences", :id => eq.id}, :class => "vote", :id => ("eq" + eq.id.to_s), :title => ("+" + eq.upvotes.to_s + ", -" + eq.downvotes.to_s), :remote => true %>&ensp;<%= eq.target_word.value %></div>
   <div class="top-explanation">
    <% if (ex = eq.explanations.max_by {|ex| ex.upvotes - ex.downvotes }).nil? %>
    <div class="add_"><%= link_to "Add explanation", new_explanation_path(:equivalence_id => eq.id) %></div>

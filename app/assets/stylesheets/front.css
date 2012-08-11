@@ -78,6 +78,9 @@ div.table > div > div > * {
 div.table > div:last-child > div {
  text-align: right
 }
+span.counter {
+ color: #700050
+}
 .large {
  font-size: large
 }

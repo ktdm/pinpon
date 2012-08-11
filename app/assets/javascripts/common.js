@@ -11,21 +11,35 @@ function init () {
     if ((e.pageY - x.offsetTop) * 2 < x.offsetHeight) {
      if (x.vote == 1) {
       x.vote = 0;
-      x.href = x.href.split("?")[0] + "?upvote=-1"
+      x.href = x.href.split("?")[0] + "?upvote=-1";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1
      }
-     else {
+     else if (x.vote == 0) {
       x.vote = 1;
-      x.href = x.href.split("?")[0] + "?upvote=1"
+      x.href = x.href.split("?")[0] + "?upvote=1";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1
+     }
+     else if (x.vote == -1) {
+      x.vote = 1;
+      x.href = x.href.split("?")[0] + "?upvote=2";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 2
      }
     }
     else {
      if (x.vote == -1) {
       x.vote = 0;
-      x.href = x.href.split("?")[0] + "?downvote=-1"
+      x.href = x.href.split("?")[0] + "?downvote=-1";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1
      }
-     else {
+     else if (x.vote == 0) {
       x.vote = -1;
-      x.href = x.href.split("?")[0] + "?downvote=1"
+      x.href = x.href.split("?")[0] + "?downvote=1";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1
+     }
+     else if (x.vote == 1) {
+      x.vote = -1;
+      x.href = x.href.split("?")[0] + "?downvote=2";
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 2
      }
     }
    }
