@@ -1,13 +1,20 @@
 <div class="subh">List of explanations</div>
 <div id="exlist">
- <div class="translation"><%= @equivalence.source_word.value %>&ensp;&rArr;&ensp;<%= @equivalence.target_word.value %></div>
+ <div class="equivalence"><%= @equivalence.source_word.value %>&ensp;&rArr;&ensp;<%= @equivalence.target_word.value %></div>
  <% @equivalence.explanations.each do |ex| %>
- <div>
-  <div><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "explanations", :id => ex.id}, :class => "vote", :id => ("ex" + ex.id.to_s), :remote => true %>&ensp;<%= ex.body %></div>
-  <div class="add"><%= link_to "Edit explanation", edit_explanation_path(ex, :equivalence_id => params[:id]) %></div>
-  <div>Example: <span><%= link_to ex.example, ex.example %></span></div>
+ <div class="explanation">
+  <div class="exvote"><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "explanations", :id => ex.id}, :class => "vote", :id => ("ex" + ex.id.to_s), :remote => true %>&ensp;</div
+  ><div class="exitem"
+   <% unless ex.body.empty? %>><div><span class="large">&zwnj;</span><%= ex.body %></div<% end %>
+   <% unless ex.example.empty? %>><div><span class="large">&zwnj;</span>Example: <span><%= link_to ex.example, ex.example %></span></div<% end %>
+  ></div>
+  <div class="add_"><%= link_to "Edit explanation", edit_explanation_path(ex, :equivalence_id => params[:id]) %></div>
  </div>
  <% end %>
+ <% if @equivalence.explanations.length == 0 %>
+ <div><%= link_to "Explain this translation!", new_explanation_path(:equivalence_id => params[:id]) %></div>
+ <% else %>
  <div class="add_"><%= link_to "Add explanation", new_explanation_path(:equivalence_id => params[:id]) %></div>
+ <% end %>
 </div>
 <%= link_to "Back", word_path(@equivalence.source_word) %>

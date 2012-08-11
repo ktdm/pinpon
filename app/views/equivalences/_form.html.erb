@@ -40,8 +40,4 @@
     <div><%= eq.submit %></div>
    </div>
   </div>
-
-  <% if params[:controller] == "equivalences" and params[:action].in? ["new", "create"] %>
-  <%= render 'explanations/form' %>
-  <% end %>
 <% end %>

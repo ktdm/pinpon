@@ -17,6 +17,13 @@ class Explanation < ActiveRecord::Base
   belongs_to :equivalence
 
   validates :example,
-    :presence => true,
-    :uri => true
+    :uri => true,
+    :unless => "example.blank?"
+  validate :min1
+
+  private
+
+  def min1
+    errors.add :base, "All fields blank" if body.blank? and example.blank?
+  end
 end

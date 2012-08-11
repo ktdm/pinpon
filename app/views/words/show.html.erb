@@ -2,12 +2,17 @@
 <div class="translations">
  <div class="source_word"><%= @word.value %></div>
  <% @word.equivalences.each do |eq| %>
- <% ex = eq.explanations.max_by {|ex| ex.upvotes - ex.downvotes } %>
- <div class="target_word"><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "equivalences", :id => eq.id}, :class => "vote", :id => ("eq" + eq.id.to_s), :remote => true %>&ensp;<%= eq.target_word.value %></div>
- <div class="explanation">
-  <div><%= ex.body %></div>
-  <div class="add"><%= link_to ("See explanations (" + eq.explanations.length.to_s + ")"), equivalence_path(eq) %></div>
-  <div>Example: <%= link_to ex.example, ex.example %></div>
+ <div class="translation">
+  <div class="target_word"><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "equivalences", :id => eq.id}, :class => "vote", :id => ("eq" + eq.id.to_s), :remote => true %>&ensp;<%= eq.target_word.value %></div>
+  <div class="top-explanation">
+   <% if (ex = eq.explanations.max_by {|ex| ex.upvotes - ex.downvotes }).nil? %>
+   <div class="add_"><%= link_to "Add explanation", new_explanation_path(:equivalence_id => eq.id) %></div>
+   <% else %>
+   <% unless ex.body.empty? %><div><%= ex.body %></div><% end %>
+   <% unless ex.example.empty? %><div>Example: <%= link_to ex.example, ex.example %></div><% end %>
+   <div class="add_"><%= link_to ("See explanations (" + eq.explanations.length.to_s + ")"), equivalence_path(eq) %></div>
+   <% end %>
+  </div>
  </div>
  <% end %>
  <div class="add_"><%= link_to "Add a translation", new_equivalence_path(:word_id => params[:id]) %></div>

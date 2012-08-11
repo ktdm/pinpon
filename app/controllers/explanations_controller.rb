@@ -9,7 +9,18 @@ class ExplanationsController < ApplicationController
   def create
     @equivalence = Equivalence.find(params[:equivalence_id])
     @explanation = @equivalence.explanations.create(params[:explanation])
-    redirect_to equivalence_path(@equivalence)
+
+    respond_to do |format|
+      if @explanation.update_attributes(params[:explanation])
+        format.html  { redirect_to(equivalence_path(@equivalence),
+                      :notice => 'Explanation was successfully created.') }
+        format.json  { head :no_content }
+      else
+        format.html  { render :action => "new" }
+        format.json  { render :json => @explanation.errors,
+                      :status => :unprocessable_entity }
+      end
+    end
   end
 
   def edit

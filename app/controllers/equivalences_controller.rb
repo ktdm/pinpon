@@ -3,7 +3,6 @@ class EquivalencesController < ApplicationController
     @equivalence = Equivalence.new
     @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id])
     @equivalence.target_word = Word.new
-    @equivalence.explanations << @explanation = Explanation.new
 
     respond_to do |format|
       format.html
@@ -18,13 +17,12 @@ class EquivalencesController < ApplicationController
     if source_word[:id]
       @equivalence.source_word_id = source_word[:id]
     else
-      @equivalence.source_word = Word.find_or_initialize_by_value_and_language(source_word[:value], source_word[:language]) #can I assume hash order??
+      @equivalence.source_word = Word.find_or_initialize_by_value_and_language(source_word[:value], source_word[:language])
     end
     @equivalence.target_word = Word.find_or_initialize_by_value_and_language(target_word[:value], target_word[:language])
-    @equivalence.explanations << @explanation = Explanation.new(params[:explanation])
  
     respond_to do |format|
-      if @equivalence.source_word.save && @equivalence.target_word.save && @equivalence.save
+      if @equivalence.save
         format.html  { redirect_to(@equivalence,
                       :notice => 'Translation was successfully submitted.') }
         format.json  { render :json => @equivalence,
@@ -59,7 +57,6 @@ class EquivalencesController < ApplicationController
     @equivalence = Equivalence.find(params[:id])
     @equivalence.source_word.update_attributes(params[:source_word])
     @equivalence.target_word.update_attributes(params[:target_word])
-    @equivalence.explanations[0].update_attributes(params[:explanation]) if params[:explanation] #??
  
     respond_to do |format|
       if @equivalence.update_attributes(params[:equivalence])

@@ -15,10 +15,4 @@ class Equivalence < ActiveRecord::Base
   accepts_nested_attributes_for :source_word
   accepts_nested_attributes_for :target_word
   accepts_nested_attributes_for :explanations
-
-#  before_create do |translation|
-#puts translation.to_s
-#    Word.find_or_create_by_value(translation.source_word)
-#    Word.find_or_create_by_value(translation.target_word)
-#  end
 end

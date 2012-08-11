@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 2) do
 
   create_table "equivalences", :force => true do |t|
     t.integer  "source_word_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "explanations", :force => true do |t|
     t.integer  "equivalence_id"
     t.text     "body"
-    t.text     "example",                       :null => false
+    t.text     "example"
     t.integer  "upvotes",        :default => 0
     t.integer  "downvotes",      :default => 0
     t.datetime "created_at",                    :null => false

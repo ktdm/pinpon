@@ -1,11 +1,15 @@
-<% if @equivalences.empty? %>
 <div class="eqlist">
- <div><%= link_to "No words yet. Submit one!", new_equivalence_path %></div>
-</div>
-<% else %>
-<div class="eqlist">
- <% @equivalences.each do |eq| %>
- <div><%= link_to eq.source_word.value, word_path(eq.source_word) %></div>
- <% end %>
-</div>
+<%= form_tag root_path, :remote => true, "data-type" => :html, :id => "srform" do %>
+ <%= hidden_field_tag :source_lang, @lang[0] %>
+ <%= hidden_field_tag :target_lang, @lang[1] %>
+ <%= text_field_tag :search, nil, :placeholder => "Search word", :onkeyup => "$('#srform').submit()" %>
 <% end %>
+ <div id="result">
+<%= render "result" %>
+ </div>
+</div>
+<script type="text/javascript">
+$('#srform').bind('ajax:success', function (evt, data, status, xhr) {
+ $('#result').html(data)
+})
+</script>
