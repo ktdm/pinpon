@@ -19,4 +19,6 @@ class Word < ActiveRecord::Base
     :presence => true
   validates :language,
     :presence => true
+
+  before_save "language.capitalize!"
 end

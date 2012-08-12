@@ -21,7 +21,7 @@ function init () {
      }
      else if (x.vote == -1) {
       x.vote = 1;
-      x.href = x.href.split("?")[0] + "?upvote=2";
+      x.href = x.href.split("?")[0] + "?upvote=1&downvote=-1";
       x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 2
      }
     }
@@ -38,7 +38,7 @@ function init () {
      }
      else if (x.vote == 1) {
       x.vote = -1;
-      x.href = x.href.split("?")[0] + "?downvote=2";
+      x.href = x.href.split("?")[0] + "?downvote=1&upvote=-1";
       x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 2
      }
     }
