@@ -12,34 +12,40 @@ function init () {
      if (x.vote == 1) {
       x.vote = 0;
       x.href = x.href.split("?")[0] + "?upvote=-1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1;
+      x.title = "+" + (parseInt(x.title.split(",")[0]) - 1) + "," + x.title.split(",")[1]
      }
      else if (x.vote == 0) {
       x.vote = 1;
       x.href = x.href.split("?")[0] + "?upvote=1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1;
+      x.title = "+" + (parseInt(x.title.split(",")[0]) + 1) + "," + x.title.split(",")[1]
      }
      else if (x.vote == -1) {
       x.vote = 1;
       x.href = x.href.split("?")[0] + "?upvote=1&downvote=-1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 2
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 2;
+      x.title = "+" + (parseInt(x.title.split(",")[0]) + 1) + ", -" + (parseInt(x.title.split("-")[1]) - 1)
      }
     }
     else {
      if (x.vote == -1) {
       x.vote = 0;
       x.href = x.href.split("?")[0] + "?downvote=-1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) + 1;
+      x.title = x.title.split("-")[0] + "-" + (parseInt(x.title.split("-")[1]) - 1)
      }
      else if (x.vote == 0) {
       x.vote = -1;
       x.href = x.href.split("?")[0] + "?downvote=1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 1;
+      x.title = x.title.split("-")[0] + "-" + (parseInt(x.title.split("-")[1]) + 1)
      }
      else if (x.vote == 1) {
       x.vote = -1;
       x.href = x.href.split("?")[0] + "?downvote=1&upvote=-1";
-      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 2
+      x.previousSibling.innerHTML = parseInt(x.previousSibling.innerHTML) - 2;
+      x.title = "+" + (parseInt(x.title.split(",")[0]) - 1) + ", -" + (parseInt(x.title.split("-")[1]) + 1)
      }
     }
    }
