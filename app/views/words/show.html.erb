@@ -25,7 +25,7 @@
   <div><%= rl %></div>
   <% @word.suggestions.select {|sg| sg.relation == rl }.sort_by {|sg| sg.downvotes - sg.upvotes }.each do |sg| %>
   <div>
-   <div><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "suggestions", :id => sg.id}, :class => "vote", :id => ("sg" + sg.id.to_s), :remote => true %>&ensp;<%= link_to sg.suggested_word.value, word_path(sg.suggested_word) %></div>
+   <div>&nbsp;<span class="counter"><%= (sg.upvotes - sg.downvotes).to_s %></span><%= link_to "&#8661;".html_safe, {:action => "vote", :controller => "suggestions", :id => sg.id}, :class => "vote", :id => ("sg" + sg.id.to_s), :title => ("+" + sg.upvotes.to_s + ", -" + sg.downvotes.to_s), :remote => true %>&ensp;<%= link_to sg.suggested_word.value, word_path(sg.suggested_word) %></div>
   </div>
   <% end %>
   <% end %>
