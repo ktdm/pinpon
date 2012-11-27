@@ -1,7 +1,8 @@
 class EquivalencesController < ApplicationController
   def new
     @equivalence = Equivalence.new
-    @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id])
+    @equivalence.source_word = Word.find_or_initialize_by_id(params[:word_id]) if params[:word_id]
+    @equivalence.source_word = Word.find_or_initialize_by_name_and_language(params[:source_word], params[:source_lang]) if params[:source_word] and params[:source_lang]
     @equivalence.target_word = Word.new
 
     respond_to do |format|

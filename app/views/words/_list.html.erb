@@ -2,7 +2,7 @@
 <%= form_tag root_path, :remote => true, "data-type" => :html, :id => "srform" do %>
  <%= hidden_field_tag :source_lang, @lang[0] %>
  <%= hidden_field_tag :target_lang, @lang[1] %>
- <%= text_field_tag :search, nil, :placeholder => "Search word", :onkeyup => "$('#srform').submit()" %>
+ <%= text_field_tag :search, nil, :placeholder => "Search word", :onkeyup => "if (event.which == 13) {$('#srform').attr({'action': 'equivalences/new', 'method': 'get'}).removeAttr('data-type data-remote')}; $('#srform').submit()" %>
 <% end %>
  <div id="result">
 <%= render "result" %>
