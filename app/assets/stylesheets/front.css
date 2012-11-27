@@ -4,8 +4,7 @@
  -webkit-box-sizing:border-box; /* Safari */
 }
 body {
- background-color: #f4f7b0;	/* transparent;	/* Background colour */
- color: #082b03
+ background-color: #f4f7b0	/* Background colour */
 }
 input {
  border: solid black 1px
@@ -36,8 +35,8 @@ div[class*="explanation"] > div.add_ {
 a {
  text-decoration: none
 }
-a:link, a:visited, span.counter {
- color: #082b03			/* #700050	/* Words colour (text) */
+body, a:link, a:visited, span.counter {
+ color: #082b03			/* Words colour (text) */
 }
 a:hover {
  border-bottom: dashed black 1px
@@ -86,10 +85,10 @@ div.table > div:last-child > div {
  font-size: large
 }
 div.eqlist, div.translations {
- background-color: #6a8b21	/* #f090d8	/* Words colour (dark) */
+ background-color: #6a8b21	/* Words colour (dark) */
 }
 div.eqlist, div.translations, div#eqform, div#exlist, div#exform, div#sgform {
- border: solid #132e0c 1px;		/* Border colour */
+ border: solid #132e0c 1px;	/* Border colour */
  color: black
 }
 hr {
@@ -138,7 +137,7 @@ div.source_word {
  font-size: x-large
 }
 div.translation {
- background-color: #96b946;	/* #f8b0e0;	/* Words colour (light) */
+ background-color: #96b946;	/* Words colour (light) */
  margin: 1em 2em 1em 2em
 }
 div.top-explanation > div {
@@ -160,10 +159,10 @@ div.foot > div > div {
 /** equivalences#new **/
 
 div#eqform {
- background-color: #3ba57a	/* yellow	/* Equivalences edit colour */
+ background-color: #3ba57a	/* Equivalences edit colour */
 }
 div#eqform input, div.explanation {
- background-color: #80c290	/* #ffb840	/* Equivalences colour (light) */
+ background-color: #80c290	/* Equivalences colour (light) */
 }
 
 /** equivalences#show **/
@@ -173,7 +172,7 @@ div.equivalence {
  margin: 0em !important
 }
 div#exlist {
- background-color: #3ba57a;	/* #ffa000;	/* Equivalences colour (dark) */
+ background-color: #3ba57a;	/* Equivalences colour (dark) */
  margin: 1em
 }
 div#exlist > div:first-child {
@@ -198,10 +197,10 @@ div.exitem {
 /** explanations#new **/
 
 div#exform {
- background-color: #d56b08	/* lime	/* Explanations edit colour */
+ background-color: #d56b08	/* Explanations edit colour (dark) */
 }
 div#exform input, div#exform textarea {
- background-color: #dcad55
+ background-color: #dcad55	/* Explanations edit colour (light) */
 }
 div#exform > div {
  margin: 1em 2em 1em 2em
@@ -222,8 +221,8 @@ div#exform > div.translation {
 /** suggestions#new **/
 
 div#sgform {
- background-color: #cfb41b	/* aqua	/* Suggestions edit colour */
+ background-color: #cfb41b	/* Suggestions edit colour (dark) */
 }
 div#sgform input {
- background-color: #eee730
+ background-color: #eee730	/* Suggestions edit colour (light) */
 }
