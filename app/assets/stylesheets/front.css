@@ -3,9 +3,6 @@
  -moz-box-sizing:border-box; /* Firefox */
  -webkit-box-sizing:border-box; /* Safari */
 }
-body {
- background-color: #f4f7b0	/* Background colour */
-}
 input {
  border: solid black 1px
 }
@@ -34,9 +31,6 @@ div[class*="explanation"] > div.add_ {
 }
 a {
  text-decoration: none
-}
-body, a:link, a:visited, span.counter {
- color: #082b03			/* Words colour (text) */
 }
 a:hover {
  border-bottom: dashed black 1px
@@ -84,19 +78,6 @@ div.table > div:last-child > div {
 .large {
  font-size: large
 }
-div.eqlist, div.translations {
- background-color: #6a8b21	/* Words colour (dark) */
-}
-div.eqlist, div.translations, div#eqform, div#exlist, div#exform, div#sgform {
- border: solid #132e0c 1px;	/* Border colour */
- color: black
-}
-hr {
- margin: 1em 2em 1em 2em;
- height: 1px;
- border: 0px;
- background-color: #132e0c
-}
 
 /** words#index **/
 
@@ -137,7 +118,6 @@ div.source_word {
  font-size: x-large
 }
 div.translation {
- background-color: #96b946;	/* Words colour (light) */
  margin: 1em 2em 1em 2em
 }
 div.top-explanation > div {
@@ -158,13 +138,6 @@ div.foot > div > div {
 
 /** equivalences#new **/
 
-div#eqform {
- background-color: #3ba57a	/* Equivalences edit colour */
-}
-div#eqform input, div.explanation {
- background-color: #80c290	/* Equivalences colour (light) */
-}
-
 /** equivalences#show **/
 
 div.equivalence {
@@ -172,7 +145,6 @@ div.equivalence {
  margin: 0em !important
 }
 div#exlist {
- background-color: #3ba57a;	/* Equivalences colour (dark) */
  margin: 1em
 }
 div#exlist > div:first-child {
@@ -196,12 +168,6 @@ div.exitem {
 
 /** explanations#new **/
 
-div#exform {
- background-color: #d56b08	/* Explanations edit colour (dark) */
-}
-div#exform input, div#exform textarea {
- background-color: #dcad55	/* Explanations edit colour (light) */
-}
 div#exform > div {
  margin: 1em 2em 1em 2em
 }
@@ -220,9 +186,3 @@ div#exform > div.translation {
 
 /** suggestions#new **/
 
-div#sgform {
- background-color: #cfb41b	/* Suggestions edit colour (dark) */
-}
-div#sgform input {
- background-color: #eee730	/* Suggestions edit colour (light) */
-}

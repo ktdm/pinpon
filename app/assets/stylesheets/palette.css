@@ -1,0 +1,71 @@
+/* Background colour */
+body {
+ background-color:	#ffffff
+}
+
+/* Heading text colour */
+body {
+ color:			#444444
+}
+
+/* Link text colour */
+a:link, a:visited, span.counter {
+ color:			#0000aa
+}
+
+/* Words colour (dark) */
+div.eqlist, div.translations {
+ background-color:	#bb6699
+}
+
+/* Border colour */
+div.eqlist, div.translations, div#eqform, div#exlist, div#exform, div#sgform {
+ border:	solid #000000 1px;
+ color: black
+}
+hr {
+ margin: 1em 2em 1em 2em;
+ height: 1px;
+ border: 0px;
+ background-color:	#000000
+}
+
+/* Words colour (light) */
+div.translation {
+ background-color: #dd99bb
+}
+
+/* Equivalences edit colour */
+div#eqform {
+ background-color: #88bb88
+}
+
+/* Equivalences colour (dark) */
+div#exlist {
+ background-color: #88bb88
+}
+
+/* Equivalences colour (light) */
+div#eqform input, div.explanation {
+ background-color: #aaccaa
+}
+
+/* Explanations edit colour (dark) */
+div#exform {
+ background-color: #ffcc00
+}
+
+/* Explanations edit colour (light) */
+div#exform input, div#exform textarea {
+ background-color: #ffe688
+}
+
+/* Suggestions edit colour (dark) */
+div#sgform {
+ background-color: #bbbbdd
+}
+
+/* Suggestions edit colour (light) */
+div#sgform input {
+ background-color: #ddddee
+}
